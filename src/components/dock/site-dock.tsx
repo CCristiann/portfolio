@@ -49,24 +49,28 @@ export function SiteDock() {
             </DockIcon>
           ))}
 
-          <Separator
-            orientation="vertical"
-            className="mx-1 h-7 self-center bg-separator"
-          />
+          {/* Socials + theme toggle hidden on mobile to keep the dock compact.
+              `sm:contents` lets the children flow into the parent flex on >= sm. */}
+          <div className="hidden sm:contents">
+            <Separator
+              orientation="vertical"
+              className="mx-1 h-7 self-center bg-separator"
+            />
 
-          <DockIcon label="GitHub" href={profile.socials.github} external>
-            <GithubIcon className="size-full" />
-          </DockIcon>
-          <DockIcon label="LinkedIn" href={profile.socials.linkedin} external>
-            <LinkedinIcon className="size-full" />
-          </DockIcon>
+            <DockIcon label="GitHub" href={profile.socials.github} external>
+              <GithubIcon className="size-full" />
+            </DockIcon>
+            <DockIcon label="LinkedIn" href={profile.socials.linkedin} external>
+              <LinkedinIcon className="size-full" />
+            </DockIcon>
 
-          <Separator
-            orientation="vertical"
-            className="mx-1 h-7 self-center bg-separator"
-          />
+            <Separator
+              orientation="vertical"
+              className="mx-1 h-7 self-center bg-separator"
+            />
 
-          <ThemeToggle />
+            <ThemeToggle />
+          </div>
         </Dock>
       </div>
     </div>

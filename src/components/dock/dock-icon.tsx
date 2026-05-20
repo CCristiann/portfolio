@@ -60,7 +60,9 @@ export function DockIcon({
       ref={ref}
       style={{ width: size, height: size }}
       className={cn(
-        "relative flex aspect-square items-center justify-center rounded-full border border-border bg-default/70 text-foreground/80 transition-colors hover:bg-default hover:text-foreground",
+        // On mobile, force a compact fixed size that overrides the motion inline style
+        // (magnification is hover-only and never fires on touch devices anyway).
+        "relative flex aspect-square items-center justify-center rounded-full border border-border bg-default/70 text-foreground/80 transition-colors hover:bg-default hover:text-foreground max-sm:!h-9 max-sm:!w-9",
         isActive &&
           "border-accent/30 bg-accent/15 text-accent hover:bg-accent/25 hover:text-accent",
       )}
