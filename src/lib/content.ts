@@ -1,16 +1,16 @@
 export const profile = {
   name: "Cristian Cirje",
   role: "Software and AI engineer",
-  location: "Bucharest, Romania",
+  location: "Rome, Italy",
   available: true,
   about:
-    "Computer Science student building production-grade systems at the intersection of AI and the web. I care about taste, latency, and shipping things people actually use.",
+    "Computer Engineering and Artificial Intelligence undergraduate at Roma Tre University. Strong interest in applied AI and the engineering of intelligent systems, with a solid full-stack foundation and a hands-on approach to building products from end to end.",
   initials: "CC",
   avatarUrl: "/me3.jpg",
   socials: {
     github: "https://github.com/CCristiann",
     linkedin: "https://www.linkedin.com/in/cristiancirje/",
-    email: "mailto:you@example.com",
+    email: "mailto:cirjecristian@icloud.com",
   },
 } as const;
 
@@ -25,29 +25,33 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Lumen — Multimodal Search Engine",
+    title: "Studio AI",
     description:
-      "A retrieval system that indexes screenshots, PDFs, and notes into a single semantic surface. Sub-200ms p95 search over 1M chunks via a hybrid BM25 + vector index.",
-    period: "2026",
-    stack: ["Next.js", "TypeScript", "Postgres", "pgvector", "OpenAI", "Vercel"],
-    href: "#",
-    source: "#",
+      "Conversational AI agent embedded in FL Studio for organizing music production projects via natural language. Multi-component system spanning a native plugin in the DAW, an IPC bridge, a real-time backend relay, and a web dashboard — with streaming chat over a frontier LLM and secure session management.",
+    period: "2025 — Present",
+    stack: ["Next.js", "React", "FastAPI", "Rust", "Python", "WebSockets", "Google Gemini"],
   },
   {
-    title: "Drift — Agent Eval Harness",
+    title: "RelyRAG",
     description:
-      "Replay framework for LLM agents that captures every tool call and lets you diff trajectories across model versions. Used internally to catch regressions before deploy.",
+      "Retrieval-augmented generation platform where users upload documents and chat with them through a streaming AI interface. End-to-end ingestion pipeline with asynchronous chunking, embedding generation, and vector storage, plus a streaming retrieval-and-generate path with query rewriting and real-time response generation.",
     period: "2025",
-    stack: ["Python", "FastAPI", "Anthropic SDK", "DuckDB"],
-    source: "#",
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "pgvector", "Google Gemini", "Inngest"],
   },
   {
-    title: "Pinboard — Real-time Collab Canvas",
+    title: "Padel AI",
     description:
-      "Yjs-backed infinite canvas with cursors, AI-generated stickies, and one-tap export to slides. Shipped to a 12-person design team and now powers their weekly crits.",
+      "Computer vision pipeline analyzing padel match footage, with an LLM agent layer for natural-language queries. Player detection and multi-object tracking using a pre-trained detector and integrated tracker; roadmap includes a fine-tuned padel-specific detector, a court segmentation model, and a tool-calling agent over the extracted match data.",
     period: "2025",
-    stack: ["Next.js", "Yjs", "tRPC", "Drizzle", "Liveblocks"],
-    href: "#",
+    stack: ["Python", "PyTorch", "OpenCV", "Ultralytics YOLO"],
+  },
+  {
+    title: "Zenthes",
+    description:
+      "Full-stack SaaS platform with subscription billing, license management, and a type-safe end-to-end API. Serverless data layer with a fully type-safe surface from database to client, and Stripe-powered subscriptions with webhook-driven license activation and lifecycle management.",
+    period: "2024 — 2025",
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "tRPC", "Stripe"],
+    href: "https://zenthes.com",
   },
 ];
 
@@ -58,20 +62,38 @@ export type SkillGroup = {
 
 export const skills: SkillGroup[] = [
   {
-    label: "Languages",
-    items: ["TypeScript", "Python", "Go", "Rust", "SQL"],
+    label: "Programming",
+    items: ["TypeScript", "JavaScript", "Python", "C", "C++", "Java", "SQL", "HTML", "CSS"],
   },
   {
-    label: "Frameworks",
-    items: ["Next.js", "React", "FastAPI", "Hono", "Tailwind CSS"],
+    label: "Web & Backend",
+    items: [
+      "Next.js",
+      "React",
+      "Node.js",
+      "FastAPI",
+      "REST",
+      "WebSockets",
+      "TanStack Query",
+      "tRPC",
+      "Prisma",
+      "Tailwind CSS",
+    ],
   },
   {
-    label: "AI / ML",
-    items: ["PyTorch", "LangGraph", "Anthropic SDK", "OpenAI SDK", "pgvector", "DSPy"],
+    label: "AI & Machine Learning",
+    items: [
+      "LLM application development",
+      "RAG architectures",
+      "Prompt engineering",
+      "Vector databases",
+      "PyTorch",
+      "TensorFlow / Keras",
+    ],
   },
   {
-    label: "Infra & Tools",
-    items: ["Postgres", "Redis", "Docker", "Vercel", "AWS", "GitHub Actions"],
+    label: "Data & Infrastructure",
+    items: ["PostgreSQL", "MongoDB", "Redis", "Supabase", "AWS", "Vercel", "Git"],
   },
 ];
 
@@ -87,20 +109,21 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    role: "Full-Stack Web Developer",
-    company: "AI Kosmo",
-    period: "2025 — Present",
-    description:
-      "Building an AI concierge platform for the hospitality industry — an autonomous agent that handles guest messaging and phone calls on behalf of hotels in real time. Worked across the stack on LLM-powered conversation flows, booking and PMS integrations, and the admin dashboard hotels use to monitor and fine-tune their assistant.",
-    logo: "/jobs/ai_kosmo_logo.jpeg",
-  },
-  {
     role: "Full-Stack Engineer (Freelance)",
     company: "Freelance",
     period: "2024 — Present",
     description:
       "Designing and shipping marketing sites and SaaS dashboards for small businesses and early-stage founders — end-to-end, from data model to deployment. Stack centered on Next.js, TypeScript, and Postgres, with a focus on fast iteration, clean handoff, and production-grade defaults.",
     icon: "code",
+  },
+  {
+    role: "Full-Stack Developer",
+    company: "AI Kosmo",
+    period: "Sep 2025 — Oct 2025",
+    location: "Remote",
+    description:
+      "Shipped frontend features on the Kosmo Cloud dashboard sold to hotel clients. Contributed inside the codebase of a multi-channel LLM product spanning chat, voice, and in-room channels.",
+    logo: "/jobs/ai_kosmo_logo.jpeg",
   },
 ];
 
@@ -124,6 +147,7 @@ export const education: Education[] = [
     logo: "/education/uni-roma-tre.png",
   },
   {
+    school: "ITC Vincenzo Arangio Ruiz",
     degree: "Technical High School Diploma, Computer Science",
     period: "Sep 2020 — Jul 2025",
     details:
