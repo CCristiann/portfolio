@@ -109,6 +109,15 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
+    role: "CTO",
+    company: "GeniusEdu",
+    period: "2026 — Present",
+    location: "Hybrid · Italy",
+    description:
+      "Leading engineering and technical direction at GeniusEdu, an AI-powered digital ecosystem for Italian university students. Own the product end to end — from AI study tools and subscription billing to architecture and infrastructure.",
+    logo: "/jobs/geniusedu_logo.png",
+  },
+  {
     role: "Full-Stack Engineer (Freelance)",
     company: "Freelance",
     period: "2024 — Present",
