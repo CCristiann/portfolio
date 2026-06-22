@@ -114,7 +114,7 @@ export const experience: Experience[] = [
     period: "2026 — Present",
     location: "Hybrid · Italy",
     description:
-      "Leading engineering and technical direction at GeniusEdu, an AI-powered digital ecosystem for Italian university students. Own the product end to end — from AI study tools and subscription billing to architecture and infrastructure.",
+      "Leading engineering and technical direction at GeniusEdu, an AI-powered digital ecosystem for Italian university students. Shape the platform's architecture and technical strategy across AI study tools, subscription billing, and infrastructure.",
     logo: "/jobs/geniusedu_logo.png",
   },
   {
