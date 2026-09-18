@@ -62,9 +62,12 @@ export function DockIcon({
       className={cn(
         // On mobile, force a compact fixed size that overrides the motion inline style
         // (magnification is hover-only and never fires on touch devices anyway).
-        "relative flex aspect-square items-center justify-center rounded-full border border-border bg-default/70 text-foreground/80 transition-colors hover:bg-default hover:text-foreground max-sm:!h-9 max-sm:!w-9",
-        isActive &&
-          "border-accent/30 bg-accent/15 text-accent hover:bg-accent/25 hover:text-accent",
+        "relative flex aspect-square items-center justify-center rounded-full border transition-colors max-sm:!h-9 max-sm:!w-9",
+        // Mutually exclusive: `cn` doesn't dedupe conflicting utilities, so
+        // both sets can't be applied at once.
+        isActive
+          ? "border-accent/30 bg-accent/15 text-accent hover:bg-accent/25"
+          : "border-border bg-default/70 text-foreground/80 hover:bg-default hover:text-foreground",
       )}
     >
       <div className="flex size-1/2 items-center justify-center">{children}</div>
