@@ -32,13 +32,13 @@ Add/remove a section in `src/app/page.tsx`.
 
 ## Theming
 
-CSS variables in `globals.css` define light + dark token pairs. Notably:
+The site uses the **HeroUI default theme** (blue accent) as shipped by `@heroui/styles` — `globals.css` does not override any color tokens, only `--font-sans`. Don't reintroduce custom palettes unless asked. Notably:
 - `--foreground` and `--background` auto-swap per theme — use `bg-foreground text-background` (or vice versa) to get an automatically inverted block that works in both modes. This is the pattern used for icon containers in Experience/Education.
 - `--accent` — primary brand color (`text-accent`, `bg-accent`).
 
 ## UI libraries
 
-- **HeroUI v3** (`@heroui/react`) — compound components: `Chip`/`Chip.Label`, `Card`/`Card.Header`/`Card.Content`/`Card.Footer`, `Button`, `Avatar`. v3 is in beta; do not assume v2 APIs.
+- **HeroUI v3** (`@heroui/react`) — compound components: `Chip`/`Chip.Label`, `Card`/`Card.Header`/`Card.Content`/`Card.Footer`, `Button`, `Avatar`. Do not assume v2 APIs; use the `heroui-react` MCP server for current docs. Since 3.2.6 React Aria packages (`react-aria`, `react-aria-components`, `@internationalized/date`, `@react-aria/ssr`, `@react-aria/utils`) are peer deps — they are pinned explicitly in `package.json` because the user's npm config sets `legacy-peer-deps=true`. Bump them together with HeroUI.
 - **lucide-react** for icons.
 - **`motion/react`** (not `framer-motion`) for animation. Sections use a simple fade+rise on viewport entry, respecting `useReducedMotion`.
 - **`next/image`** for all raster images; never raw `<img>`.
