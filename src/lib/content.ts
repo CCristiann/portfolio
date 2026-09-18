@@ -4,7 +4,7 @@ export const profile = {
   location: "Rome, Italy",
   available: true,
   about:
-    "Computer Engineering and Artificial Intelligence undergraduate at Roma Tre University. Strong interest in applied AI and the engineering of intelligent systems, with a solid full-stack foundation and a hands-on approach to building products from end to end.",
+    "Computer Engineering and Artificial Intelligence undergraduate at Roma Tre University, currently CTO of GeniusHub — an AI-assisted study platform for university students. Hands-on experience building distributed, multi-tier systems end to end, from low-level systems programming in C to backend services, relational databases, and production web applications used by real users. Most drawn to applied AI: RAG pipelines, LLM-powered products, and the infrastructure that runs them.",
   initials: "CC",
   avatarUrl: "/me3.jpg",
   socials: {
@@ -27,28 +27,28 @@ export const projects: Project[] = [
   {
     title: "Studio AI",
     description:
-      "Conversational AI agent embedded in FL Studio for organizing music production projects via natural language. Multi-component system spanning a native plugin in the DAW, an IPC bridge, a real-time backend relay, and a web dashboard — with streaming chat over a frontier LLM and secure session management.",
+      "AI agent embedded in FL Studio for organizing music-production projects through natural language. A multi-tier distributed system: a native Rust plugin inside the DAW, a Python IPC bridge, and a real-time FastAPI relay service that talks to a Next.js dashboard over WebSockets.",
     period: "2025 — Present",
     stack: ["Next.js", "React", "FastAPI", "Rust", "Python", "WebSockets", "Google Gemini"],
   },
   {
+    title: "picoforge",
+    description:
+      "Single-model LLM inference engine for Apple Silicon, written from scratch in C and Metal with no ML frameworks. Every stage is validated against a NumPy reference and a C CPU baseline before the Metal GPU kernels are written — catching numerical drift early and keeping memory bandwidth and compute complexity in view.",
+    period: "In progress",
+    stack: ["C", "Metal 4", "Apple Silicon", "Python", "NumPy"],
+  },
+  {
     title: "RelyRAG",
     description:
-      "Retrieval-augmented generation platform where users upload documents and chat with them through a streaming AI interface. End-to-end ingestion pipeline with asynchronous chunking, embedding generation, and vector storage, plus a streaming retrieval-and-generate path with query rewriting and real-time response generation.",
+      "Retrieval-augmented generation platform for querying uploaded documents. An async ingestion pipeline — background jobs, chunking, and embeddings — feeds a vector index on PostgreSQL, paired with a streaming retrieval-and-generate query flow with query rewriting.",
     period: "2025",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "pgvector", "Google Gemini", "Inngest"],
   },
   {
-    title: "Padel AI",
-    description:
-      "Computer vision pipeline analyzing padel match footage, with an LLM agent layer for natural-language queries. Player detection and multi-object tracking using a pre-trained detector and integrated tracker; roadmap includes a fine-tuned padel-specific detector, a court segmentation model, and a tool-calling agent over the extracted match data.",
-    period: "2025",
-    stack: ["Python", "PyTorch", "OpenCV", "Ultralytics YOLO"],
-  },
-  {
     title: "Zenthes",
     description:
-      "Full-stack SaaS platform with subscription billing, license management, and a type-safe end-to-end API. Serverless data layer with a fully type-safe surface from database to client, and Stripe-powered subscriptions with webhook-driven license activation and lifecycle management.",
+      "Full-stack SaaS platform with subscription billing, license management, and end-to-end type-safe APIs. Stripe-powered payments and subscriptions with webhook-driven license activation and lifecycle management.",
     period: "2024 — 2025",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "tRPC", "Stripe"],
     href: "https://zenthes.com",
@@ -63,7 +63,7 @@ export type SkillGroup = {
 export const skills: SkillGroup[] = [
   {
     label: "Programming",
-    items: ["TypeScript", "JavaScript", "Python", "C", "C++", "Java", "SQL", "HTML", "CSS"],
+    items: ["TypeScript", "JavaScript", "Python", "C", "Java", "SQL", "HTML", "CSS"],
   },
   {
     label: "Web & Backend",
@@ -72,10 +72,11 @@ export const skills: SkillGroup[] = [
       "React",
       "Node.js",
       "FastAPI",
+      "tRPC",
       "REST",
       "WebSockets",
       "TanStack Query",
-      "tRPC",
+      "Drizzle ORM",
       "Prisma",
       "Tailwind CSS",
     ],
@@ -84,16 +85,27 @@ export const skills: SkillGroup[] = [
     label: "AI & Machine Learning",
     items: [
       "LLM application development",
-      "RAG architectures",
+      "RAG pipelines",
+      "Embeddings & reranking",
       "Prompt engineering",
       "Vector databases",
+      "Vercel AI SDK",
       "PyTorch",
       "TensorFlow / Keras",
     ],
   },
   {
     label: "Data & Infrastructure",
-    items: ["PostgreSQL", "MongoDB", "Redis", "Supabase", "AWS", "Vercel", "Git"],
+    items: ["PostgreSQL", "Supabase", "MongoDB", "Redis", "AWS", "Vercel", "Git"],
+  },
+  {
+    label: "CS Fundamentals",
+    items: [
+      "Data structures & algorithms",
+      "Computational complexity",
+      "Object-oriented design",
+      "System design",
+    ],
   },
 ];
 
@@ -110,19 +122,19 @@ export type Experience = {
 export const experience: Experience[] = [
   {
     role: "CTO",
-    company: "GeniusEdu",
-    period: "2026 — Present",
+    company: "GeniusHub",
+    period: "Jun 2026 — Present",
     location: "Hybrid · Italy",
     description:
-      "Leading engineering and technical direction at GeniusEdu, an AI-powered digital ecosystem for Italian university students. Shape the platform's architecture and technical strategy across AI study tools, subscription billing, and infrastructure.",
+      "Technical lead of GeniusHub (formerly GeniusEdu), an AI-assisted study platform for university students — owning architecture, data model, and delivery priorities end to end. Designed and built the RAG pipeline: multi-format ingestion, contextual chunking, embeddings, and retrieval with reranking, with answers backed by verifiable citations. Shipped features from schema to UI, including chat over study materials, AI-generated summaries and concept maps, auto-graded mock exams, and subscription billing.",
     logo: "/jobs/geniusedu_logo.png",
   },
   {
-    role: "Full-Stack Engineer (Freelance)",
+    role: "Full-Stack Engineer",
     company: "Freelance",
     period: "2024 — Present",
     description:
-      "Designing and shipping marketing sites and SaaS dashboards for small businesses and early-stage founders — end-to-end, from data model to deployment. Stack centered on Next.js, TypeScript, and Postgres, with a focus on fast iteration, clean handoff, and production-grade defaults.",
+      "Designing and shipping production web applications for small businesses and early-stage founders, end to end from data model to deployment — including romanadvisor.com, built on Next.js and Supabase with Redis-based rate limiting, a moderated review system, and scheduled jobs. Fast iteration cycles, clean handoff, and production-grade defaults across multiple client engagements.",
     icon: "code",
   },
   {
@@ -131,7 +143,7 @@ export const experience: Experience[] = [
     period: "Sep 2025 — Oct 2025",
     location: "Remote",
     description:
-      "Shipped frontend features on the Kosmo Cloud dashboard sold to hotel clients. Contributed inside the codebase of a multi-channel LLM product spanning chat, voice, and in-room channels.",
+      "Shipped front-end features for the Kosmo Cloud dashboard, sold to hotel clients. Contributed to the codebase of a multi-channel LLM product spanning chat, voice, and in-room guest channels.",
     logo: "/jobs/ai_kosmo_logo.jpeg",
   },
 ];

@@ -13,7 +13,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Cristian Cirje — Software and AI engineer",
   description:
-    "Portfolio of Cristian Cirje. Computer Science student building production-grade AI and web systems.",
+    "Portfolio of Cristian Cirje — Computer Engineering & AI student at Roma Tre University and CTO of GeniusHub, building production-grade AI and web systems.",
 };
 
 export default function RootLayout({
