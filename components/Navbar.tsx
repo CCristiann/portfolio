@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { ThemeSwitcher } from "./ThemeSwitcher";
@@ -14,7 +15,15 @@ export default function Navbar() {
     <header className="w-full sticky top-0 z-10 py-2 bg-background/80 backdrop-blur">
       <Container>
         <nav className="w-full flex justify-between items-center p-2 rounded-lg">
-          <Link href={"/"} className="font-semibold">
+          <Link href={"/"} className="flex items-center gap-x-2 font-semibold">
+            <Image
+              src="/icon.svg"
+              alt=""
+              width={24}
+              height={24}
+              unoptimized
+              priority
+            />
             ccristiann
           </Link>
           <div className="flex items-center gap-x-2.5">
