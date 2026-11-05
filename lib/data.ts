@@ -26,32 +26,10 @@ export const projects: Project[] = [
     repo: "https://github.com/CCristiann/picoforge",
   },
   {
-    title: "Studio AI",
-    description:
-      "AI agent embedded in FL Studio that organizes music-production projects through natural language: a native Rust plugin, a Python IPC bridge and a real-time FastAPI relay talking to a Next.js dashboard.",
-    tags: ["Rust", "Python", "FastAPI", "Next.js", "WebSockets"],
-    repo: "https://github.com/CCristiann/studio-ai",
-  },
-  {
-    title: "Rely",
-    description:
-      "RAG as a service: upload documents or connect Notion, build knowledge bases and chat with your data. Background ingestion jobs, rate limiting and Gemini-powered answers.",
-    tags: ["Next.js", "Prisma", "Inngest", "Redis", "Gemini"],
-    repo: "https://github.com/CCristiann/rely",
-    url: "https://rely-beta.vercel.app",
-  },
-  {
-    title: "Roman Advisor",
-    description:
-      "Insider's guide to Rome built for a client: curated restaurants, neighborhood guides and tours, with a moderated review system, rate limiting and scheduled jobs.",
-    tags: ["Next.js", "Supabase", "Redis", "TanStack Query"],
-    url: "https://romanadvisor.com",
-  },
-  {
-    title: "Padel AI",
-    description:
-      "Computer-vision pipeline for padel match footage: player detection and multi-object tracking with YOLOv8 and ByteTrack, running on Apple Silicon.",
-    tags: ["Python", "PyTorch", "OpenCV", "YOLO"],
-  },
+    title: "Mars Terrain Segmenetation",
+    description: "A U-Net that labels every pixel of a Mars rover photo as soil, bedrock, sand or big rock. Trained on Curiosity NavCam images from the AI4Mars dataset, in PyTorch. It is a personal learning project: a small, readable baseline, trained for only 5 epochs (~1 hour on a MacBook).",
+    tags: ["Machine Learning"],
+    repo: "https://github.com/CCristiann/mars-terrain-segmentation"
+  }
 ];
 
