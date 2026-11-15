@@ -14,8 +14,8 @@ export default function Navbar() {
   return (
     <header className="w-full sticky top-0 z-10 py-2 bg-background/80 backdrop-blur">
       <Container>
-        <nav className="w-full flex justify-between items-center p-2 rounded-lg">
-          <Link href={"/"} className="flex items-center gap-x-2 font-semibold">
+        <nav className="w-full flex justify-between items-center gap-x-2 p-2 rounded-lg">
+          <Link href={"/"} className="flex min-w-0 items-center gap-x-2 truncate font-semibold">
             <Image
               src="/icon.svg"
               alt=""
@@ -26,7 +26,7 @@ export default function Navbar() {
             />
             ccristiann
           </Link>
-          <div className="flex items-center gap-x-2.5">
+          <div className="flex shrink-0 items-center gap-x-1 sm:gap-x-2.5">
             {links.map((link) => (
               <Link
                 key={link.href}

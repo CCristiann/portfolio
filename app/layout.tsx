@@ -42,7 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         inter.variable,
       )}
     >
-      <body className="min-h-full w-full">
+      <body className="min-h-full w-full overflow-x-clip">
         <Analytics />
         <ThemeProvider
           attribute={"class"}
