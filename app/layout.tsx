@@ -50,7 +50,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           enableSystem
           disableTransitionOnChange
         >
-          <div aria-hidden className="bg-dots pointer-events-none fixed inset-0 -z-10" />
           <Navbar />
           <main className="w-full">{children}</main>
         </ThemeProvider>

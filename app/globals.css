@@ -136,3 +136,67 @@
   background-position: center;
   mask-image: radial-gradient(ellipse at center, #000 15%, transparent 70%);
 }
+
+/* Tipografia degli articoli dei progetti (README di GitHub o articoli locali).
+   Valori presi da ui.shadcn.com/docs/components/typography. */
+@layer components {
+  .prose-project {
+    overflow-wrap: break-word;
+  }
+  /* GitHub avvolge i titoli in div.markdown-heading */
+  .prose-project .markdown-heading { display: contents; }
+
+  .prose-project h2 {
+    @apply mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight;
+  }
+  /* Niente margine solo per il titolo che apre l'articolo (non per quelli
+     dentro div.markdown-heading, che sono sempre "primo figlio"). */
+  .prose-project > h2:first-child { @apply mt-0; }
+  .prose-project h3 { @apply mt-8 scroll-m-20 text-2xl font-semibold tracking-tight; }
+  .prose-project h4 { @apply mt-8 scroll-m-20 text-xl font-semibold tracking-tight; }
+  .prose-project p { @apply leading-7 [&:not(:first-child)]:mt-6; }
+  .prose-project a { @apply font-medium text-primary underline underline-offset-4; }
+  .prose-project strong { @apply font-semibold; }
+  .prose-project blockquote { @apply mt-6 border-l-2 pl-6 italic; }
+  .prose-project ul { @apply my-6 ml-6 list-disc [&>li]:mt-2; }
+  .prose-project ol { @apply my-6 ml-6 list-decimal [&>li]:mt-2; }
+  .prose-project li > p { @apply mt-0; }
+  .prose-project hr { @apply my-8; }
+  .prose-project img {
+    @apply mx-auto h-auto rounded-lg border;
+    max-width: 100% !important;
+  }
+  .prose-project :not(pre) > code {
+    @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+  }
+  .prose-project pre {
+    @apply mt-6 overflow-x-auto rounded-lg border bg-muted p-4 font-mono text-sm;
+  }
+  .prose-project markdown-accessiblity-table,
+  .prose-project markdown-accessibility-table {
+    @apply my-6 block w-full overflow-y-auto;
+  }
+  .prose-project table { @apply w-full; }
+  .prose-project tr { @apply m-0 border-t p-0 even:bg-muted; }
+  .prose-project th {
+    @apply border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right;
+  }
+  .prose-project td {
+    @apply border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right;
+  }
+
+  /* Colori del syntax highlighting di GitHub (classi pl-*) */
+  .prose-project .pl-c { @apply italic text-muted-foreground; }
+  .prose-project .pl-k { color: oklch(0.55 0.2 15); }
+  .prose-project .pl-c1,
+  .prose-project .pl-v { color: oklch(0.5 0.15 250); }
+  .prose-project .pl-s,
+  .prose-project .pl-pds { color: oklch(0.45 0.12 150); }
+  .prose-project .pl-en { color: oklch(0.5 0.17 300); }
+  .dark .prose-project .pl-k { color: oklch(0.75 0.15 15); }
+  .dark .prose-project .pl-c1,
+  .dark .prose-project .pl-v { color: oklch(0.78 0.11 250); }
+  .dark .prose-project .pl-s,
+  .dark .prose-project .pl-pds { color: oklch(0.8 0.12 150); }
+  .dark .prose-project .pl-en { color: oklch(0.78 0.12 300); }
+}
