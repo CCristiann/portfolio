@@ -200,3 +200,14 @@
   .dark .prose-project .pl-pds { color: oklch(0.8 0.12 150); }
   .dark .prose-project .pl-en { color: oklch(0.78 0.12 300); }
 }
+
+/* ══ ASCII wake ════════════════════════════════════════════ */
+.asc {
+  position: relative;
+  cursor: crosshair;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;}
+
+.asc-canvas { display: block; color: var(--fill-on, var(--ink)); }

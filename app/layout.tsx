@@ -5,7 +5,11 @@ import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+
+import { AsciiWake } from "@/components/AsciiWake";
+
+<AsciiWake glyphs="Classic" size={10} reach={60} trail={1.2} pull={40} />;
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -51,7 +55,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="w-full">{children}</main>
+          <main className="w-full">
+            {children}
+            <div className="w-full mx-auto flex items-center justify-center pb-20 pt-10">
+              <AsciiWake
+                glyphs="Classic"
+                size={10}
+                reach={60}
+                trail={1.2}
+                pull={40}
+              />
+            </div>
+          </main>
         </ThemeProvider>
       </body>
     </html>
