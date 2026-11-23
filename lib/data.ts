@@ -1,4 +1,6 @@
 // Contenuti del portfolio: modifica qui i progetti.
+// Per i progetti con source "github", `description` è solo il ripiego: quella
+// mostrata è la descrizione ("About") del repository su GitHub.
 
 // Da dove arriva la pagina di approfondimento del progetto:
 // - "github": README del repository, renderizzato da GitHub (immagini incluse)

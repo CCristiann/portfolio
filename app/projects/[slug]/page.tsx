@@ -8,7 +8,7 @@ import Container from "@/components/Container";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { getProject, projects } from "@/lib/data";
-import { getReadmeHtml } from "@/lib/github";
+import { getProjectDescription, getReadmeHtml } from "@/lib/github";
 import { localContent } from "@/content/projects";
 
 export function generateStaticParams() {
@@ -20,7 +20,10 @@ export async function generateMetadata({
 }: PageProps<"/projects/[slug]">): Promise<Metadata> {
   const project = getProject((await params).slug);
   if (!project) return {};
-  return { title: project.title, description: project.description };
+  return {
+    title: project.title,
+    description: await getProjectDescription(project),
+  };
 }
 
 // Le pagine note sono prerenderizzate da generateStaticParams; il Suspense
@@ -74,7 +77,7 @@ async function ProjectArticle({
             </div>
 
             <p className="text-xl text-muted-foreground">
-              {project.description}
+              {await getProjectDescription(project)}
             </p>
           </div>
 

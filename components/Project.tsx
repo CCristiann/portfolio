@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Globe } from "lucide-react";
 import { GitHubIcon } from "./icons";
 import type { Project as TProject } from "@/lib/data";
+import { getProjectDescription } from "@/lib/github";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "./ui/button";
 import {
@@ -15,7 +16,9 @@ import {
 
 // L'intera card porta alla pagina del progetto (link esteso con ::after);
 // i bottoni Code/Live restano cliccabili sopra il link.
-export default function Project({ project }: { project: TProject }) {
+export default async function Project({ project }: { project: TProject }) {
+  const description = await getProjectDescription(project);
+
   return (
     <Card className="relative group transition duration-150 hover:shadow-md  has-[a[data-card-link]:focus-visible]:ring-2 has-[a[data-card-link]:focus-visible]:ring-ring">
       <CardHeader>
@@ -29,7 +32,7 @@ export default function Project({ project }: { project: TProject }) {
           </Link>
           {project.status && <Badge>{project.status}</Badge>}
         </CardTitle>
-        <CardDescription>{project.description}</CardDescription>
+        <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-wrap gap-1.5">
         {project.tags.map((tag) => (

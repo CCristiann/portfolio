@@ -1,4 +1,5 @@
 import { cacheLife } from "next/cache";
+import type { Project } from "@/lib/data";
 
 // Scarica il README già renderizzato da GitHub (stesso output di github.com:
 // tabelle, code highlighting, HTML sanificato) e lo adatta alla pagina.
@@ -20,6 +21,41 @@ export async function getReadmeHtml(repo: string, branch: string) {
   }
 
   return transformReadme(await res.text(), repo, branch);
+}
+
+// Descrizione ("About") del repository su GitHub, stessa cache del README.
+async function getRepoDescription(repo: string) {
+  "use cache";
+  cacheLife("days");
+
+  const res = await fetch(`https://api.github.com/repos/${repo}`, {
+    headers: {
+      Accept: "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+      "User-Agent": "portfolio",
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error(`Repository ${repo} non disponibile (${res.status})`);
+  }
+
+  const { description } = (await res.json()) as { description: string | null };
+  return description?.trim() || null;
+}
+
+// Per i progetti "github" usa la descrizione del repository; se manca o
+// GitHub non risponde, ripiega su quella scritta in lib/data.ts. Il catch sta
+// fuori dalla funzione in cache, così un errore non viene memorizzato.
+export async function getProjectDescription(project: Project) {
+  if (project.content.source !== "github") return project.description;
+  try {
+    return (
+      (await getRepoDescription(project.content.repo)) ?? project.description
+    );
+  } catch {
+    return project.description;
+  }
 }
 
 function transformReadme(html: string, repo: string, branch: string) {
